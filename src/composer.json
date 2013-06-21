@@ -1,0 +1,7 @@
+{
+    "require": {
+        "aws/aws-sdk-php": "2.*",
+        "lf4php/lf4php": "3.0.1",
+        "lf4php/lf4php-monolog": "3.0.0"
+    }
+}

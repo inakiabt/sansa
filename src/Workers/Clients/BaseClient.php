@@ -1,7 +1,7 @@
 <?php
-namespace MessageProcessor\Workers\Clients;
+namespace Sansa\Workers\Clients;
 
-use MessageProcessor\Base;
+use Sansa\Base;
 
 abstract class BaseClient extends Base {
 	protected $config = null;

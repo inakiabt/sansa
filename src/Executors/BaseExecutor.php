@@ -1,7 +1,7 @@
 <?php
-namespace MessageProcessor\Executors;
+namespace Sansa\Executors;
 
-use MessageProcessor\Base;
+use Sansa\Base;
 
 /**
 * BaseExecutor

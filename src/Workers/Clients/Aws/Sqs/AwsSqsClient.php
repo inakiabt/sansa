@@ -1,7 +1,7 @@
 <?php
-namespace MessageProcessor\Workers\Clients\Aws\Sqs;
+namespace Sansa\Workers\Clients\Aws\Sqs;
 
-use MessageProcessor\Workers\Clients\BaseClient;
+use Sansa\Workers\Clients\BaseClient;
 use Aws\Sqs\SqsClient;
 
 /**

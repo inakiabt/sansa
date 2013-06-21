@@ -1,5 +1,5 @@
 <?php
-namespace MessageProcessor;
+namespace Sansa;
 
 /**
 * Base

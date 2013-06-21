@@ -1,7 +1,7 @@
 <?php
-namespace MessageProcessor\Filters;
+namespace Sansa\Filters;
 
-use MessageProcessor\Base;
+use Sansa\Base;
 
 /**
 * BaseFilter

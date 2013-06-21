@@ -1,7 +1,7 @@
 <?php
-namespace MessageProcessor\PreProcessors;
+namespace Sansa\PreProcessors;
 
-use MessageProcessor\Base;
+use Sansa\Base;
 
 /**
 * BasePreProcessor

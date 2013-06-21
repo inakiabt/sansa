@@ -1,9 +1,9 @@
 <?php
-namespace MessageProcessor\Workers;
+namespace Sansa\Workers;
 
-use MessageProcessor\Base;
-use MessageProcessor\Workers\Clients\BaseClient;
-use MessageProcessor\Executors\BaseExecutor;
+use Sansa\Base;
+use Sansa\Workers\Clients\BaseClient;
+use Sansa\Executors\BaseExecutor;
 
 /**
 * Base Worker

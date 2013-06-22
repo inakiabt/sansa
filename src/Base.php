@@ -1,6 +1,8 @@
 <?php
 namespace Sansa;
 
+use lf4php\LoggerFactory;
+
 /**
 * Base
 */
@@ -11,7 +13,6 @@ class Base
 
 	public function __construct()
 	{
-		echo "CONSTRUCT BASE ".__CLASS__."\n";
 		$this->logger = LoggerFactory::getLogger(__CLASS__);
 	}
 

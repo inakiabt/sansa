@@ -18,6 +18,7 @@ abstract class BaseClient extends Base {
 
 		foreach ($messages as $i => $message)
 		{
+			var_dump($messages[$i]);
 			$messages[$i]->context = array();
 		}
 	}

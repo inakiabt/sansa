@@ -17,7 +17,7 @@ class AwsSqsClient extends BaseClient
 		$this->client = SqsClient::factory($config['SQS']['init']);
 	}
 
-	public function receiveMessages()
+	protected function doReceiveMessages()
 	{
 	    $result = $this->client->receiveMessage($this->config['SQS']['receive']);
 

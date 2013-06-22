@@ -12,5 +12,15 @@ abstract class BaseClient extends Base {
 		$this->config = $config;
 	}
 
-	abstract public function receiveMessages();
+	public function receiveMessages()
+	{
+		$messages = $this->doReceiveMessages();
+
+		foreach ($messages as $i => $message)
+		{
+			$messages[$i]->context = array();
+		}
+	}
+
+	abstract protected function doReceiveMessages();
 }

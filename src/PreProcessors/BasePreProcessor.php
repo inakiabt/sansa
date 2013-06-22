@@ -8,6 +8,10 @@ use Sansa\Base;
 */
 class BasePreProcessor extends Base
 {
+	function __construct()
+	{
+		parent::__construct();
+	}
 	public function preProcess($message)
 	{
 		return $message;

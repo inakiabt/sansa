@@ -12,6 +12,7 @@ abstract class BaseExecutor extends Base
 
 	function __construct($nextExecutor = null)
 	{
+		parent::__construct();
 		if ($nextExecutor !== null)
 		{
 			$this->setNext($nextExecutor);

@@ -12,6 +12,8 @@ abstract class BaseFilter extends Base
 
 	function __construct($nextFilter = null)
 	{
+		echo "aaaaaaaaa";
+		parent::__construct();
 		if ($nextFilter != null)
 		{
 			$this->setNext($nextFilter);

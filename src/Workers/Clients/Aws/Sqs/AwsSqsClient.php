@@ -14,19 +14,12 @@ class AwsSqsClient extends BaseClient
 	{
 		parent::__construct($config);
 
-		$this->client = SqsClient::factory(array(
-			'key'    => $config[AWS_ACCESS_KEY],
-			'secret' => $config[AWS_SECRET_KEY],
-			'region' => $config[SQS_REGION]
-		));			
+		$this->client = SqsClient::factory($config['SQS']['init']);
 	}
 
 	public function receiveMessages()
 	{
-	    $result = $this->client->receiveMessage(array(
-	        'QueueUrl' => $this->config[SQS_QUEUE],
-	        'MaxNumberOfMessages' => $this->config[SQS_MESSAGES]
-	    ));
+	    $result = $this->client->receiveMessage($this->config['SQS']['receive']);
 
 	    return $result->getPath('Messages/*/Body');
 	}

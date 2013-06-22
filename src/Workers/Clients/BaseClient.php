@@ -8,6 +8,7 @@ abstract class BaseClient extends Base {
 
 	function __construct($config)
 	{
+		parent::__construct();
 		$this->config = $config;
 	}
 

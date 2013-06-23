@@ -27,7 +27,7 @@ abstract class BaseExecutor extends Base
 		return $this->nextExecutor;
 	}
 
-	public function process($messages, $rawMessages = null)
+	public function process(&$messages, $rawMessages = null)
 	{
 		if ($this->doProcess($messages, $rawMessages) !== false)
 		{
@@ -38,5 +38,5 @@ abstract class BaseExecutor extends Base
 		}
 	}
 
-	abstract protected function doProcess($messages, $rawMessages = null);
+	abstract protected function doProcess(&$messages, $rawMessages = null);
 }

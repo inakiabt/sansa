@@ -77,14 +77,11 @@ class BaseWorker extends Base
 		if (count($rawMessages) > 0)
 		{
 			$messages = $this->getPreProcessor()->preProcess($rawMessages);
-			
-			foreach ($messages as $message)
+
+			$filteredMessages = $this->getFilter()->filter($messages);
+			if (count($filteredMessages) > 0)
 			{
-				if ($this->getContext()->get('status') === RUNNING)
-				{
-					$this->getContext($message)->set('status', RUNNING);
-					$this->getExecutor()->process($message);
-				}
+				$this->getExecutor()->process($filteredMessages, $rawMessages);
 			}
 		}
 	}

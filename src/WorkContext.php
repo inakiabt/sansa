@@ -1,4 +1,6 @@
 <?php
+namespace Sansa;
+
 class WorkContext
 {
 	private $elements = array();

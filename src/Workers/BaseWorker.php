@@ -37,6 +37,7 @@ class BaseWorker extends Base
 	public function setPreProcessor($preProcessor)
 	{
 		$this->preProcessor = $preProcessor;
+		$this->preProcessor->setEventDispatcher($this->getEventDispatcher());
 	}
 
 	public function getPreProcessor()
@@ -76,11 +77,14 @@ class BaseWorker extends Base
 		if (count($rawMessages) > 0)
 		{
 			$messages = $this->getPreProcessor()->preProcess($rawMessages);
-
-			$filteredMessages = $this->getFilter()->filter($messages);
-			if (count($filteredMessages) > 0)
+			
+			foreach ($messages as $message)
 			{
-				$this->getExecutor()->process($filteredMessages, $rawMessages);
+				if ($this->getContext()->get('status') === RUNNING)
+				{
+					$this->getContext($message)->set('status', RUNNING);
+					$this->getExecutor()->process($message);
+				}
 			}
 		}
 	}

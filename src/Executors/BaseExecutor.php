@@ -29,14 +29,38 @@ abstract class BaseExecutor extends Base
 
 	public function process($messages, $rawMessages = null)
 	{
-		if ($this->doProcess($messages, $rawMessages) !== false)
+		if ($this->canAccept($message))
 		{
-			if ($this->nextExecutor !== null)
+			if ($this->isValid($message))
 			{
-				$this->nextExecutor->process($messages, $rawMessages);
+				$this->doWork($validMessages);
+
+				$this->processNext($message);
 			}
+		} else {
+			$this->processNext($message);
 		}
 	}
 
-	abstract protected function doProcess($messages, $rawMessages = null);
+	private function processNext($message)
+	{
+		if ($this->getContext()->get('status') === RUNNING && 
+			$this->getContext($message)->get('status') === RUNNING && 
+			$this->nextExecutor !== null)
+		{
+			$this->nextExecutor->process($message);
+		}
+	}
+
+	private function doWork($message)
+	{
+		if ($this->getContext()->get('status') === RUNNING && 
+			$this->getContext($message)->get('status') === RUNNING)
+		{
+			$this->doProcess($message);
+		}
+	}
+
+	abstract protected function isValid($message);
+	abstract protected function doProcess($message)
 }

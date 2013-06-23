@@ -37,6 +37,7 @@ class BaseWorker extends Base
 	public function setPreProcessor($preProcessor)
 	{
 		$this->preProcessor = $preProcessor;
+		$this->preProcessor->setEventDispatcher($this->getEventDispatcher());
 	}
 
 	public function getPreProcessor()

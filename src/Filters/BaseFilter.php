@@ -30,7 +30,7 @@ abstract class BaseFilter extends Base
 	public function filter($messages)
 	{
 		$filteredMessages = $this->doFilter($messages);
-		if ($this->nextFilter !== null)
+		if ($this->nextFilter !== null && count($filteredMessages) > 0)
 		{
 			return $this->nextFilter->filter($filteredMessages);
 		}

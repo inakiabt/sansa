@@ -2,7 +2,6 @@
 namespace Sansa;
 
 use lf4php\LoggerFactory;
-use WorkContext;
 
 /**
 * Base

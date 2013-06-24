@@ -8,11 +8,18 @@
 	    "email": "inakiabt@gmail.com"
 	}
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "/Users/Ina/Documents/ProductGram/src/lf4php-monolog"
+        }
+    ],
+
     "require": {
         "php": ">=5.3.0",
         "aws/aws-sdk-php": "2.*",
         "lf4php/lf4php": "3.0.1",
-        "lf4php/lf4php-monolog": "3.0.0"
+        "lf4php/lf4php-monolog": "dev-master"
     },
     "autoload": {
     	"psr-0": {

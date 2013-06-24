@@ -1,7 +1,6 @@
 <?php
 namespace Sansa\Logger;
 
-use Monolog\Logger as MonologLogger;
 /**
 * 
 */
@@ -19,7 +18,7 @@ class MonologLoggerFactory
 	{
 		if (!isset(self::$loggers[$name]))
 		{
-			$newLogger = new MonologLogger($name);
+			$newLogger = new MonologWrapper($name);
 			foreach (self::$logger->getHandlers() as $handler)
 			{
 				$newLogger->pushHandler($handler);

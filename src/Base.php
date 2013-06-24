@@ -1,7 +1,7 @@
 <?php
 namespace Sansa;
 
-use lf4php\LoggerFactory;
+use Sansa\Logger\MonologLoggerFactory;
 
 /**
 * Base
@@ -14,7 +14,7 @@ class Base
 
 	public function __construct()
 	{
-		$this->logger = LoggerFactory::getLogger(__CLASS__);
+		$this->logger = MonologLoggerFactory::getLogger(__CLASS__);
 		$this->context = WorkContext::getInstance();
 	}
 

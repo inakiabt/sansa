@@ -46,7 +46,6 @@ class AwsSqsClient extends BaseClient
 
 	public function deleteMessages(MessagesEvent $messages)
 	{
-		return;
 		if ($this->notDelete)
 		{
 			return;

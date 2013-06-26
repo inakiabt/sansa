@@ -83,6 +83,13 @@ class BaseWorker extends Base
 			{
 				$this->getExecutor()->process($filteredMessages, $rawMessages);
 			}
+
+			$this->finish($messages, $rawMessages);
 		}
+	}
+
+	protected function finish($messages, $rawMessages)
+	{
+		
 	}
 }

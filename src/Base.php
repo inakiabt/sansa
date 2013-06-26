@@ -14,7 +14,7 @@ class Base
 
 	public function __construct()
 	{
-		$this->logger = MonologLoggerFactory::getLogger(__CLASS__);
+		$this->logger = MonologLoggerFactory::getLogger(preg_replace('@.*?\\\\([^\\\\]+)$@', '$1', get_class($this)));
 		$this->context = WorkContext::getInstance();
 	}
 

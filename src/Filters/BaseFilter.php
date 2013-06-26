@@ -37,5 +37,9 @@ abstract class BaseFilter extends Base
 		return $filteredMessages;
 	}
 
+	protected function invalidMessages($messages, $reason = '')
+	{
+	}
+
 	abstract protected function doFilter($messages);
 }

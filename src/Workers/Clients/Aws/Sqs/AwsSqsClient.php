@@ -50,7 +50,7 @@ class AwsSqsClient extends BaseClient
 		{
 			return;
 		}
-
+		$this->logger()->info('Deleting messages...');
 		$time = time();
 		$messagesToDelete = array();
 		foreach ($messages->getMessages() as $key => $message)

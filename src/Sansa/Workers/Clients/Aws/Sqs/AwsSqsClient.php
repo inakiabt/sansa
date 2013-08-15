@@ -25,7 +25,7 @@ class AwsSqsClient extends BaseClient
 	{
 		parent::setEventDispatcher($dispatcher);
 
-		$this->getEventDispatcher()->addListener('messages:invalid', array($this, 'deleteMessages'));
+		$this->getEventDispatcher()->addListener('messages:invalid', array($this, 'onInvalidMessages'));
 	}
 
 	protected function doReceiveMessages()
@@ -39,12 +39,17 @@ class AwsSqsClient extends BaseClient
 	    return $messages;
 	}
 
+	private function onInvalidMessages(MessagesEvent $messages)
+	{
+		$this->deleteMessages($messages->getMessages());
+	}
+
 	public function finish($messages, $rawMessages)
 	{
 		$this->deleteMessages($messages);
 	}
 
-	public function deleteMessages(MessagesEvent $messages)
+	public function deleteMessages($messages)
 	{
 		if ($this->notDelete)
 		{
@@ -53,7 +58,7 @@ class AwsSqsClient extends BaseClient
 		$this->logger()->info('Deleting messages...');
 		$time = time();
 		$messagesToDelete = array();
-		foreach ($messages->getMessages() as $key => $message)
+		foreach ($messages as $key => $message)
 		{
 			if (@$message->isDeletable !== false)
 			{

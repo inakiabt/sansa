@@ -17,5 +17,10 @@ abstract class BaseClient extends Base {
 		return $this->doReceiveMessages();
 	}
 
+	protected function finish($messages, $rawMessages)
+	{
+		
+	}
+	
 	abstract protected function doReceiveMessages();
 }

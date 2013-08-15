@@ -39,7 +39,7 @@ class AwsSqsClient extends BaseClient
 	    return $messages;
 	}
 
-	private function onInvalidMessages(MessagesEvent $messages)
+	public function onInvalidMessages(MessagesEvent $messages)
 	{
 		$this->deleteMessages($messages->getMessages());
 	}

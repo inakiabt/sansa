@@ -39,7 +39,7 @@ class AwsSqsClient extends BaseClient
 	    return $messages;
 	}
 
-	protected function finish($messages, $rawMessages)
+	public function finish($messages, $rawMessages)
 	{
 		$this->deleteMessages($messages);
 	}

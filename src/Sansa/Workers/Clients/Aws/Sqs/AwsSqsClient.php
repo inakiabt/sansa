@@ -55,7 +55,6 @@ class AwsSqsClient extends BaseClient
 		{
 			return;
 		}
-		$this->logger()->info('Deleting messages ('.count($messages).')...');
 		$time = time();
 		$messagesToDelete = array();
 		foreach ($messages as $key => $message)
@@ -72,6 +71,7 @@ class AwsSqsClient extends BaseClient
 		try {
 			if (count($messagesToDelete) > 0)
 			{
+				$this->logger()->info('Deleting messages ('.count($messagesToDelete).')...');
 				$this->client->deleteMessageBatch(array(
 		            'QueueUrl' => $this->config['SQS']['receive']['QueueUrl'],
 		            'Entries'  => $messagesToDelete,

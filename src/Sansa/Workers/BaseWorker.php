@@ -13,6 +13,7 @@ class BaseWorker extends Base
 	private $config = array();
 
 	private $client = null;
+	private $filter = null;
 	private $executor = null;
 	private $validator = null;
 	private $preProcessor = null;
@@ -78,7 +79,7 @@ class BaseWorker extends Base
 		{
 			$messages = $this->getPreProcessor()->preProcess($rawMessages);
 
-			$filteredMessages = $this->getFilter()->filter($messages);
+			$filteredMessages = $this->getFilter() === null ? $messages : $this->getFilter()->filter($messages);
 			if (count($filteredMessages) > 0)
 			{
 				$this->getExecutor()->process($filteredMessages, $rawMessages);
